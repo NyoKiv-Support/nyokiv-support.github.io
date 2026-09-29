@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NyoKiv Support — Des logiciels qui font gagner du temps aux entreprises</title>
+  <meta name="description" content="NyoKiv Support conçoit des logiciels de bureau simples et sécurisés pour automatiser les tâches répétitives des petites et moyennes entreprises.">
+  <meta name="theme-color" content="#8A2BE2">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%238A2BE2'/><text x='50' y='68' font-size='58' font-family='Arial' font-weight='700' text-anchor='middle' fill='white'>N</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white: #FFFFFF;
+      --paper: #F8F9FA;
+      --ink: #212529;
+      --muted: #5c636a;
+      --violet: #8A2BE2;
+      --violet-deep: #6f42c1;
+      --line: #E9ECEF;
+      --display: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+      --body: 'Public Sans', 'Segoe UI', system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--body); color: var(--ink); background: var(--white); line-height: 1.6; font-size: 17px; }
+    a { color: inherit; }
+    :focus-visible { outline: 3px solid var(--violet); outline-offset: 3px; border-radius: 4px; }
+
+    .wrap { width: min(1120px, 100% - 48px); margin-inline: auto; }
+
+    /* En-tête */
+    header.site { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+    header.site .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .brand { font-family: var(--display); font-weight: 800; font-size: 22px; text-decoration: none; letter-spacing: -0.02em; }
+    .brand span { color: var(--violet); }
+    nav { display: flex; gap: 28px; align-items: center; }
+    nav a { text-decoration: none; font-weight: 500; font-size: 15px; color: var(--muted); }
+    nav a:hover { color: var(--violet); }
+    .btn { display: inline-block; background: var(--violet); color: var(--white); text-decoration: none; font-weight: 600; font-size: 15px; padding: 12px 22px; border-radius: 8px; border: 0; cursor: pointer; font-family: inherit; transition: background .15s; }
+    .btn:hover { background: var(--violet-deep); }
+    .btn.ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
+    .btn.ghost:hover { background: var(--ink); color: var(--white); }
+    nav .btn { color: var(--white); padding: 9px 18px; }
+    nav .btn:hover { color: var(--white); }
+
+    /* Hero */
+    .hero { padding: 88px 0 96px; }
+    .hero .wrap { display: grid; grid-template-columns: 1.05fr .95fr; gap: 64px; align-items: center; }
+    h1 { font-family: var(--display); font-weight: 800; font-size: clamp(38px, 5.4vw, 66px); line-height: 1.02; letter-spacing: -0.035em; margin-bottom: 24px; }
+    .lead { font-size: 20px; color: var(--muted); max-width: 30em; margin-bottom: 36px; }
+    .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    /* Démo interactive */
+    .demo { background: var(--paper); border: 1.5px solid var(--ink); border-radius: 14px; padding: 26px; box-shadow: 8px 8px 0 var(--violet); }
+    .demo-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; font-family: var(--display); font-weight: 700; font-size: 18px; }
+    .demo-head small { font-family: var(--body); font-weight: 500; font-size: 13px; color: var(--muted); }
+    .field { display: grid; grid-template-columns: 110px 1fr; gap: 12px; align-items: center; padding: 11px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+    .field:last-of-type { border-bottom: 0; }
+    .field label { color: var(--muted); font-size: 14px; }
+    .field output { min-height: 24px; font-weight: 500; border-bottom: 2px dashed transparent; }
+    .field output.empty { border-bottom-color: #ced4da; }
+    .demo-foot { margin-top: 18px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    .demo-status { font-size: 14px; font-weight: 600; color: var(--violet-deep); min-height: 22px; }
+    .demo-note { margin-top: 14px; font-size: 12.5px; color: var(--muted); }
+
+    /* Sections */
+    section.block { padding: 88px 0; }
+    section.alt { background: var(--paper); border-block: 1px solid var(--line); }
+    h2 { font-family: var(--display); font-weight: 700; font-size: clamp(30px, 3.8vw, 44px); line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 14px; }
+    .section-intro { color: var(--muted); max-width: 38em; margin-bottom: 48px; font-size: 18px; }
+
+    /* Logiciels */
+    .product { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; padding: 36px; background: var(--white); border: 1.5px solid var(--ink); border-radius: 14px; margin-bottom: 20px; }
+    .product h3 { font-family: var(--display); font-size: 28px; letter-spacing: -0.02em; margin-bottom: 8px; }
+    .tag { display: inline-block; font-size: 13px; font-weight: 600; padding: 4px 12px; border-radius: 99px; background: rgba(138,43,226,.1); color: var(--violet-deep); margin-bottom: 14px; }
+    .product p { color: var(--muted); }
+    .product ul { list-style: none; display: grid; gap: 12px; align-content: start; }
+    .product li { padding-left: 28px; position: relative; }
+    .product li::before { content: ""; position: absolute; left: 0; top: 8px; width: 14px; height: 8px; border-left: 3px solid var(--violet); border-bottom: 3px solid var(--violet); transform: rotate(-45deg) scale(.9); }
+    .product.soon { border: 1.5px dashed #adb5bd; grid-template-columns: 1fr; padding: 28px 36px; background: transparent; }
+    .product.soon h3 { font-size: 22px; }
+
+    /* Étapes (vraie séquence) */
+    .steps { list-style: none; counter-reset: step; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1.5px solid var(--ink); }
+    .steps li { counter-increment: step; padding: 26px 24px 0 0; }
+    .steps li::before { content: counter(step); display: block; font-family: var(--display); font-weight: 800; font-size: 40px; line-height: 1; color: var(--violet); margin-bottom: 12px; }
+    .steps h3 { font-family: var(--display); font-size: 20px; margin-bottom: 6px; }
+    .steps p { color: var(--muted); font-size: 15.5px; }
+
+    /* Engagements */
+    .commit { display: grid; grid-template-columns: 1fr 1fr; gap: 0 64px; }
+    .commit div { padding: 26px 0; border-top: 1px solid var(--line); }
+    .commit h3 { font-family: var(--display); font-size: 21px; margin-bottom: 6px; }
+    .commit p { color: var(--muted); }
+
+    /* Contact */
+    .contact { background: var(--violet); color: var(--white); padding: 88px 0; }
+    .contact .wrap { display: flex; justify-content: space-between; align-items: center; gap: 40px; flex-wrap: wrap; }
+    .contact h2 { margin-bottom: 10px; }
+    .contact p { max-width: 32em; opacity: .92; font-size: 18px; }
+    .btn.light { background: var(--white); color: var(--ink); font-size: 17px; padding: 15px 28px; }
+    .btn.light:hover { background: var(--ink); color: var(--white); }
+    .contact small { display: block; margin-top: 12px; opacity: .85; font-size: 14px; }
+
+    footer { padding: 32px 0; font-size: 14px; color: var(--muted); }
+    footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero .wrap, .product, .commit { grid-template-columns: 1fr; }
+      .hero { padding: 56px 0 64px; }
+      .hero .wrap { gap: 44px; }
+      .steps { grid-template-columns: 1fr 1fr; row-gap: 12px; }
+      nav a:not(.btn) { display: none; }
+      .product { padding: 26px; gap: 28px; }
+      section.block, .contact { padding: 64px 0; }
+    }
+    @media (max-width: 520px) {
+      .steps { grid-template-columns: 1fr; }
+      .field { grid-template-columns: 90px 1fr; }
+      .demo { box-shadow: 5px 5px 0 var(--violet); padding: 20px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="#top">Nyo<span>Kiv</span> Support</a>
+      <nav aria-label="Navigation principale">
+        <a href="#logiciels">Logiciels</a>
+        <a href="#fonctionnement">Fonctionnement</a>
+        <a href="#engagements">Engagements</a>
+        <a class="btn" href="#contact">Nous contacter</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <div>
+          <h1>Vos tâches répétitives, terminées en un clic.</h1>
+          <p class="lead">Nous créons des logiciels de bureau simples, sécurisés et toujours à jour, pour que votre équipe passe son temps sur son vrai métier.</p>
+          <div class="cta-row">
+            <a class="btn" href="#contact">Demander une démonstration</a>
+            <a class="btn ghost" href="#logiciels">Voir nos logiciels</a>
+          </div>
+        </div>
+
+        <!-- Démo interactive : exemple du logiciel Location -->
+        <div class="demo" aria-labelledby="demo-title">
+          <div class="demo-head">
+            <span id="demo-title">Contrat de location</span>
+            <small>Aperçu de NyoKiv Location</small>
+          </div>
+          <div class="field"><label>Client</label><output id="f-client" class="empty"></output></div>
+          <div class="field"><label>Matériel</label><output id="f-materiel" class="empty"></output></div>
+          <div class="field"><label>Période</label><output id="f-periode" class="empty"></output></div>
+          <div class="field"><label>Total</label><output id="f-total" class="empty"></output></div>
+          <div class="demo-foot">
+            <button class="btn" id="demo-btn" type="button">Préparer le contrat</button>
+            <span class="demo-status" id="demo-status" role="status" aria-live="polite"></span>
+          </div>
+          <p class="demo-note">Exemple fictif, à titre d'illustration.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOGICIELS -->
+    <section class="block alt" id="logiciels">
+      <div class="wrap">
+        <h2>Nos logiciels</h2>
+        <p class="section-intro">Chaque outil règle un problème précis du quotidien d'une entreprise, sans usine à gaz.</p>
+
+        <article class="product">
+          <div>
+            <span class="tag">En développement</span>
+            <h3>NyoKiv Location</h3>
+            <p>Pour les entreprises qui louent du matériel, en particulier de façon saisonnière : du devis à la restitution, tout se gère au même endroit.</p>
+          </div>
+          <ul>
+            <li>Contrats de location générés automatiquement</li>
+            <li>Suivi du matériel disponible, loué et à récupérer</li>
+            <li>Photos de l'état du matériel à la remise et au retour</li>
+            <li>Factures prêtes à envoyer</li>
+            <li>Plusieurs postes connectés en temps réel</li>
+          </ul>
+        </article>
+
+        <article class="product soon">
+          <div>
+            <h3>D'autres outils arrivent</h3>
+            <p>Nous préparons de nouveaux logiciels pour d'autres métiers. Vous avez une tâche qui vous prend trop de temps ? Dites-le-nous.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- FONCTIONNEMENT -->
+    <section class="block" id="fonctionnement">
+      <div class="wrap">
+        <h2>Comment ça se passe</h2>
+        <p class="section-intro">De la première discussion à l'utilisation quotidienne, en quatre étapes.</p>
+        <ol class="steps">
+          <li><h3>On échange</h3><p>Vous nous décrivez votre besoin et nous vous montrons une démonstration.</p></li>
+          <li><h3>Vous testez</h3><p>Vous essayez le logiciel avec vos propres données pendant une période d'essai.</p></li>
+          <li><h3>On installe</h3><p>Un simple fichier .exe à installer. Les comptes de votre équipe sont créés pour vous.</p></li>
+          <li><h3>Ça se met à jour</h3><p>Les nouvelles versions arrivent automatiquement, sans manipulation de votre part.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ENGAGEMENTS -->
+    <section class="block alt" id="engagements">
+      <div class="wrap">
+        <h2>Nos engagements</h2>
+        <p class="section-intro">Vos données sont celles de votre entreprise. Nous les traitons avec le même sérieux.</p>
+        <div class="commit">
+          <div><h3>Sécurité des accès</h3><p>Chaque utilisateur a son propre compte, protégé par une double authentification.</p></div>
+          <div><h3>Données protégées</h3><p>Les informations sont hébergées dans le cloud, avec des droits d'accès définis par rôle.</p></div>
+          <div><h3>Conforme au RGPD</h3><p>Nous ne conservons que ce qui est nécessaire, et pour une durée limitée et définie.</p></div>
+          <div><h3>Toujours à jour</h3><p>Les améliorations et corrections sont déployées automatiquement chez tous nos clients.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div>
+        <h2>Parlons de votre besoin</h2>
+        <p>Décrivez-nous en quelques lignes ce qui vous prend du temps. Nous vous répondons rapidement avec une proposition.</p>
+      </div>
+      <div>
+        <a class="btn light" href="mailto:contact@votre-domaine.fr?subject=Demande%20de%20d%C3%A9monstration">Nous écrire</a>
+        <small>contact@votre-domaine.fr</small>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <span>© <span id="year">2026</span> NyoKiv Support. Tous droits réservés.</span>
+      <span><a href="https://github.com/NyoKiv-Support">GitHub</a></span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Démo : remplissage progressif des champs du contrat
+    (function () {
+      const btn = document.getElementById('demo-btn');
+      const status = document.getElementById('demo-status');
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const data = [
+        ['f-client', 'Camping Les Pins'],
+        ['f-materiel', '4 kayaks, 4 gilets'],
+        ['f-periode', '12 → 19 juillet'],
+        ['f-total', '320,00 €']
+      ];
+      let running = false, done = false;
+
+      function reset() {
+        data.forEach(([id]) => {
+          const el = document.getElementById(id);
+          el.textContent = '';
+          el.classList.add('empty');
+        });
+        status.textContent = '';
+        btn.textContent = 'Préparer le contrat';
+        done = false;
+      }
+
+      function fill(i) {
+        if (i >= data.length) {
+          status.textContent = 'Contrat prêt à envoyer';
+          btn.textContent = 'Recommencer';
+          running = false; done = true; btn.disabled = false;
+          return;
+        }
+        const [id, text] = data[i];
+        const el = document.getElementById(id);
+        el.classList.remove('empty');
+        el.textContent = text;
+        setTimeout(() => fill(i + 1), reduce ? 0 : 420);
+      }
+
+      btn.addEventListener('click', function () {
+        if (running) return;
+        if (done) { reset(); return; }
+        running = true; btn.disabled = true;
+        status.textContent = 'Préparation…';
+        fill(0);
+      });
+    })();
+  </script>
+</body>
+</html>
